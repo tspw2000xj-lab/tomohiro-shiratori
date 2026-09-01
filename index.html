@@ -22,6 +22,12 @@
   @keyframes maskUp { from { transform: translateY(105%); } to { transform: translateY(0); } }
   @keyframes ruleGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .portfolio-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 640px) {
+    .portfolio-groups { gap: 1.75rem; }
+    .portfolio-grid-2, .portfolio-grid-3 { grid-template-columns: 1fr; gap: 1.75rem; }
+  }
 </style>
 </helmet>
 
@@ -51,8 +57,8 @@
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 2.25rem">
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem 1.75rem">
+      <div class="portfolio-groups" style="display: flex; flex-direction: column; gap: 2.25rem">
+        <div class="portfolio-grid-2" style="display: grid; gap: 2.25rem 1.75rem">
           <article>
             <a href="movie.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
               <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
@@ -76,7 +82,7 @@
           </article>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 1.75rem">
+        <div class="portfolio-grid-3" style="display: grid; gap: 2.25rem 1.75rem">
           <article>
             <a href="livestream.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
               <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
