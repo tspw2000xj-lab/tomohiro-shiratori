@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Works — Studio ORIGAMI</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #2D3F49;
+      --bg-sub: #263039;
+      --text-dark-bg: #ede8df;
+      --text-muted: #7E8A90;
+      --accent: #E60012;
+      --accent-sub: #FF6672;
+
+      --font-en: 'Inter', sans-serif;
+      --font-ja: 'Noto Sans JP', sans-serif;
+
+      --container-width: 1200px;
+      --radius-sm: 4px;
+      --radius-lg: 8px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+      color: var(--text-dark-bg);
+      font-family: var(--font-ja);
+      letter-spacing: 0.06em;
+      overflow-x: hidden;
+    }
+
+    body {
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(45, 63, 73, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-logo {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dark-bg);
+    }
+
+    .back-link {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-sub);
+    }
+
+    /* CONTAINER & PAGE HEADER */
+    .page-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 8rem 5vw 6rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-family: var(--font-en);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    /* CATEGORY FILTER NAV */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .nav-link-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.4rem 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link-btn:hover {
+      color: var(--text-dark-bg);
+    }
+
+    .nav-link-btn.active {
+      color: var(--text-dark-bg);
+    }
+
+    .nav-link-btn.active::after {
+      opacity: 1;
+    }
+
+    /* GALLERY GRID */
+    .gallery-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--bg-sub);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(230, 0, 18, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .image-container {
+      width: 100%;
+      height: 220px;
+      background-color: #1a232a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .card-info {
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-number {
+      font-family: var(--font-en);
+      font-weight: 700;
+      color: var(--text-dark-bg);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-logo">Studio ORIGAMI</a>
+    <a href="index.html#works" class="back-link">&larr; Back to Works</a>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Design</h1>
+    </div>
+
+    <div class="nav-links">
+      <button class="nav-link-btn active" onclick="showCategory('all', event)">All</button>
+      <button class="nav-link-btn" onclick="showCategory('editorial', event)">Editorial Design</button>
+      <button class="nav-link-btn" onclick="showCategory('logo', event)">Logo Design</button>
+      <button class="nav-link-btn" onclick="showCategory('character', event)">Character Design</button>
+    </div>
+
+    <div class="gallery-section" id="gallery">
+
+      <!-- Editorial Design (01〜04) -->
+      <div class="card" data-category="editorial">
+        <div class="image-container"><img src="01.jpg" alt="01"></div>
+        <div class="card-info"><span class="card-number">01.jpg</span> - Editorial Design</div>
+      </div>
+      <div class="card" data-category="editorial">
+        <div class="image-container"><img src="02.jpg" alt="02"></div>
+        <div class="card-info"><span class="card-number">02.jpg</span> - Editorial Design</div>
+      </div>
+      <div class="card" data-category="editorial">
+        <div class="image-container"><img src="03.jpg" alt="03"></div>
+        <div class="card-info"><span class="card-number">03.jpg</span> - Editorial Design</div>
+      </div>
+      <div class="card" data-category="editorial">
+        <div class="image-container"><img src="04.jpg" alt="04"></div>
+        <div class="card-info"><span class="card-number">04.jpg</span> - Editorial Design</div>
+      </div>
+
+      <!-- Logo Design (05〜09) -->
+      <div class="card" data-category="logo">
+        <div class="image-container"><img src="05.jpg" alt="05"></div>
+        <div class="card-info"><span class="card-number">05.jpg</span> - Logo Design</div>
+      </div>
+      <div class="card" data-category="logo">
+        <div class="image-container"><img src="06.jpg" alt="06"></div>
+        <div class="card-info"><span class="card-number">06.jpg</span> - Logo Design</div>
+      </div>
+      <div class="card" data-category="logo">
+        <div class="image-container"><img src="07.jpg" alt="07"></div>
+        <div class="card-info"><span class="card-number">07.jpg</span> - Logo Design</div>
+      </div>
+      <div class="card" data-category="logo">
+        <div class="image-container"><img src="08.jpg" alt="08"></div>
+        <div class="card-info"><span class="card-number">08.jpg</span> - Logo Design</div>
+      </div>
+      <div class="card" data-category="logo">
+        <div class="image-container"><img src="09.jpg" alt="09"></div>
+        <div class="card-info"><span class="card-number">09.jpg</span> - Logo Design</div>
+      </div>
+
+      <!-- Character Design (panda_01〜04) -->
+      <div class="card" data-category="character">
+        <div class="image-container"><img src="panda_01.jpg" alt="panda_01"></div>
+        <div class="card-info"><span class="card-number">panda_01.jpg</span> - Character Design</div>
+      </div>
+      <div class="card" data-category="character">
+        <div class="image-container"><img src="panda_02.jpg" alt="panda_02"></div>
+        <div class="card-info"><span class="card-number">panda_02.jpg</span> - Character Design</div>
+      </div>
+      <div class="card" data-category="character">
+        <div class="image-container"><img src="panda_03.jpg" alt="panda_03"></div>
+        <div class="card-info"><span class="card-number">panda_03.jpg</span> - Character Design</div>
+      </div>
+      <div class="card" data-category="character">
+        <div class="image-container"><img src="panda_04.jpg" alt="panda_04"></div>
+        <div class="card-info"><span class="card-number">panda_04.jpg</span> - Character Design</div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // カテゴリ切り替えフィルター処理
+    function showCategory(category, e) {
+      const buttons = document.querySelectorAll('.nav-link-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (e) e.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

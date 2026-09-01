@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone Works — Studio ORIGAMI</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #2D3F49;
+      --bg-sub: #263039;
+      --text-dark-bg: #ede8df;
+      --text-muted: #7E8A90;
+      --accent: #E60012;
+      --accent-sub: #FF6672;
+      
+      --font-en: 'Inter', sans-serif;
+      --font-ja: 'Noto Sans JP', sans-serif;
+      
+      --container-width: 1200px;
+      --radius-sm: 4px;
+      --radius-lg: 8px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+      color: var(--text-dark-bg);
+      font-family: var(--font-ja);
+      letter-spacing: 0.06em;
+      overflow-x: hidden;
+    }
+
+    body {
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(45, 63, 73, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-logo {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dark-bg);
+    }
+
+    .back-link {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-sub);
+    }
+
+    /* CONTAINER & PAGE HEADER */
+    .page-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 8rem 5vw 6rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-family: var(--font-en);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    /* MAIN VIDEO PLAYER */
+    .main-video-section {
+      margin-bottom: 2rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-meta {
+      margin-top: 1.5rem;
+    }
+
+    .video-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      color: var(--text-dark-bg);
+      margin-bottom: 0.5rem;
+    }
+
+    .video-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-logo">Studio ORIGAMI</a>
+    <a href="index.html#works" class="back-link">&larr; Back to Works</a>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Drone</h1>
+    </div>
+
+    <section class="main-video-section">
+      <div class="video-wrapper">
+        <iframe 
+          id="mainIframe"
+          src="https://www.youtube.com/embed/JmegDplcblQ?rel=0" 
+          title="Drone Player" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-meta">
+        <h2 class="video-title" id="mainTitle">Drone Sample</h2>
+        <p class="video-desc" id="mainDesc">ドローン空撮・映像作品</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

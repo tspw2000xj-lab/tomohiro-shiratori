@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Works — Studio ORIGAMI</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #2D3F49;
+      --bg-sub: #263039;
+      --text-dark-bg: #ede8df;
+      --text-muted: #7E8A90;
+      --accent: #E60012;
+      --accent-sub: #FF6672;
+      
+      --font-en: 'Inter', sans-serif;
+      --font-ja: 'Noto Sans JP', sans-serif;
+      
+      --container-width: 1200px;
+      --radius-sm: 4px;
+      --radius-lg: 8px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+      color: var(--text-dark-bg);
+      font-family: var(--font-ja);
+      letter-spacing: 0.06em;
+      overflow-x: hidden;
+    }
+
+    body {
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(45, 63, 73, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-logo {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dark-bg);
+    }
+
+    .back-link {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-sub);
+    }
+
+    /* CONTAINER & PAGE HEADER */
+    .page-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 8rem 5vw 6rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-family: var(--font-en);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    /* MAIN VIDEO PLAYER */
+    .main-video-section {
+      margin-bottom: 5rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-meta {
+      margin-top: 1.5rem;
+    }
+
+    .video-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      color: var(--text-dark-bg);
+      margin-bottom: 0.5rem;
+    }
+
+    .video-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* GALLERY GRID */
+    .gallery-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 3rem;
+    }
+
+    .section-label {
+      font-family: var(--font-en);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 2rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-card {
+      background-color: var(--bg-sub);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(230, 0, 18, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-thumb-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .video-card:hover .card-thumb {
+      transform: scale(1.05);
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .video-card:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .video-card:hover .play-icon {
+      transform: scale(1.1);
+    }
+
+    .card-info {
+      padding: 1.2rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark-bg);
+      margin-bottom: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-logo">Studio ORIGAMI</a>
+    <a href="index.html#works" class="back-link">&larr; Back to Works</a>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Animation</h1>
+    </div>
+
+    <section class="main-video-section">
+      <div class="video-wrapper">
+        <iframe 
+          id="mainIframe"
+          src="https://www.youtube.com/embed/3k1E8aL30ao?rel=0" 
+          title="Animation Video Player" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-meta">
+        <h2 class="video-title" id="mainTitle">TVcm Sample 01</h2>
+        <p class="video-desc" id="mainDesc">テレビCM制作</p>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h3 class="section-label">All Works</h3>
+      
+      <div class="video-grid">
+        <article class="video-card" onclick="switchVideo('3k1E8aL30ao', 'TVcm Sample 01', 'テレビCM制作')">
+          <div class="card-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/3k1E8aL30ao/hqdefault.jpg" alt="TVcm Sample 01" class="card-thumb">
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4 class="card-title">TVcm Sample 01</h4>
+            <p class="card-desc">テレビCM制作</p>
+          </div>
+        </article>
+
+        <article class="video-card" onclick="switchVideo('buUK6ucd2s0', 'TVcm Sample 02', 'テレビCM制作')">
+          <div class="card-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/buUK6ucd2s0/hqdefault.jpg" alt="TVcm Sample 02" class="card-thumb">
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4 class="card-title">TVcm Sample 02</h4>
+            <p class="card-desc">テレビCM制作</p>
+          </div>
+        </article>
+
+        <article class="video-card" onclick="switchVideo('AMtcriLrWlY', 'Animation', 'アニメーション作品')">
+          <div class="card-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/AMtcriLrWlY/hqdefault.jpg" alt="Animation" class="card-thumb">
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4 class="card-title">Animation</h4>
+            <p class="card-desc">アニメーション作品</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function switchVideo(videoId, title, description) {
+      document.getElementById('mainIframe').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      document.getElementById('mainTitle').textContent = title;
+      document.getElementById('mainDesc').textContent = description;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
