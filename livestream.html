@@ -254,9 +254,11 @@
       font-weight: 700;
       color: var(--text-dark-bg);
       margin-bottom: 0.3rem;
-      white-space: nowrap;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .card-desc {
@@ -294,8 +296,8 @@
         </iframe>
       </div>
       <div class="video-meta">
-        <h2 class="video-title" id="mainTitle">Live Stream Project 01</h2>
-        <p class="video-desc" id="mainDesc">ライブ配信テクニカルディレクション・オペレーション案件 01。</p>
+        <h2 class="video-title" id="mainTitle">オリエンタルバイオ presents RiOの踊る♪ウィークエンド</h2>
+        <p class="video-desc" id="mainDesc">2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生</p>
       </div>
     </section>
 
@@ -305,9 +307,9 @@
       
       <div class="video-grid">
         <!-- Video 1 -->
-        <article class="video-card" onclick="switchVideo('2_Wkyd6Qjgk', 'Live Stream Project 01', 'ライブ配信テクニカルディレクション・オペレーション案件 01。')">
+        <article class="video-card" onclick="switchVideo('2_Wkyd6Qjgk', 'オリエンタルバイオ presents RiOの踊る♪ウィークエンド', '2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生')">
           <div class="card-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/2_Wkyd6Qjgk/hqdefault.jpg" alt="Live Stream Project 01" class="card-thumb">
+            <img src="https://img.youtube.com/vi/2_Wkyd6Qjgk/hqdefault.jpg" alt="オリエンタルバイオ presents RiOの踊る♪ウィークエンド" class="card-thumb">
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -315,15 +317,15 @@
             </div>
           </div>
           <div class="card-info">
-            <h4 class="card-title">Live Stream Project 01</h4>
-            <p class="card-desc">ライブ配信テクニカルディレクション・オペレーション案件 01。</p>
+            <h4 class="card-title">オリエンタルバイオ presents RiOの踊る♪ウィークエンド</h4>
+            <p class="card-desc">2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生</p>
           </div>
         </article>
 
         <!-- Video 2 -->
-        <article class="video-card" onclick="switchVideo('nk0ud2RGf1U', 'Live Stream Project 02', 'ライブ配信テクニカルディレクション・オペレーション案件 02。')">
+        <article class="video-card" onclick="switchVideo('nk0ud2RGf1U', 'しんきんカップ 第56回 静岡県中学選抜野球大会', '2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生')">
           <div class="card-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/nk0ud2RGf1U/hqdefault.jpg" alt="Live Stream Project 02" class="card-thumb">
+            <img src="https://img.youtube.com/vi/nk0ud2RGf1U/hqdefault.jpg" alt="しんきんカップ 第56回 静岡県中学選抜野球大会" class="card-thumb">
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -331,15 +333,15 @@
             </div>
           </div>
           <div class="card-info">
-            <h4 class="card-title">Live Stream Project 02</h4>
-            <p class="card-desc">ライブ配信テクニカルディレクション・オペレーション案件 02。</p>
+            <h4 class="card-title">しんきんカップ 第56回 静岡県中学選抜野球大会</h4>
+            <p class="card-desc">2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生</p>
           </div>
         </article>
 
         <!-- Video 3 -->
-        <article class="video-card" onclick="switchVideo('tQVwM5acLb0', 'Live Stream Project 03', 'ライブ配信テクニカルディレクション・オペレーション案件 03。')">
+        <article class="video-card" onclick="switchVideo('tQVwM5acLb0', 'なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重', '2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生')">
           <div class="card-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/tQVwM5acLb0/hqdefault.jpg" alt="Live Stream Project 03" class="card-thumb">
+            <img src="https://img.youtube.com/vi/tQVwM5acLb0/hqdefault.jpg" alt="なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重" class="card-thumb">
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -347,8 +349,8 @@
             </div>
           </div>
           <div class="card-info">
-            <h4 class="card-title">Live Stream Project 03</h4>
-            <p class="card-desc">ライブ配信テクニカルディレクション・オペレーション案件 03。</p>
+            <h4 class="card-title">なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重</h4>
+            <p class="card-desc">2025–2026 ／ 担当：技術設計・システム構築・スイッチング・CG・スロー再生</p>
           </div>
         </article>
       </div>
