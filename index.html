@@ -68,7 +68,7 @@
   .work:hover .work-thumb img { transform: scale(1.05); }
   .work-cat { font-family: var(--font-en); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-on-dark); }
   .work-title { font-weight: 700; color: var(--text); line-height: 1.5; }
-  .work-meta { font-size: 0.8rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+  .work-meta { font-size: 0.8rem; font-weight: 400; color: var(--text-muted); line-height: 1.6; }
 
   .featured { margin-bottom: 3.5rem; }
   .featured-link { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
@@ -88,11 +88,11 @@
   .section-title { font-family: var(--font-en); font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -0.015em; text-transform: uppercase; line-height: 1; margin-bottom: 2.75rem; }
   .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
   .skill-can, .work-title, .work-meta { word-break: auto-phrase; }
-  .skill { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.3rem; border-radius: 4px; }
+  .skill { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.9rem 1.6rem; border-radius: 4px; }
   .skill-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; }
-  .skill-head svg { width: 26px; height: 26px; stroke: var(--accent-on-dark); stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .skill-head svg { width: 30px; height: 30px; stroke: var(--accent-on-dark); stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .skill-head .fill { fill: var(--accent-on-dark); }
-  .skill-num { font-family: var(--font-en); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1; color: var(--accent-on-dark); width: 2.5em; height: 2.5em; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--accent-on-dark); border-radius: 50%; }
+  .skill-num { font-family: var(--font-en); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1; color: var(--accent-on-dark); width: 2.5em; height: 2.5em; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--accent-on-dark); border-radius: 50%; }
   .skill h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
   .skill-can { font-size: 0.88rem; line-height: 1.75; color: var(--text); }
   .skill-tools { margin-top: 0.7rem; font-family: var(--font-en); font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
@@ -113,13 +113,13 @@
   .site-nav a { font-size: 0.88rem; }
   .hero-role { font-size: clamp(1.05rem, 2vw, 1.5rem); }
   .featured .work-title { font-size: clamp(1.3rem, 2.4vw, 1.85rem); }
-  .featured .work-meta { font-size: 0.95rem; }
+  .featured .work-meta { font-size: 1.08rem; }
   .featured-more { font-size: 0.88rem; }
   .works-grid .work-title { font-size: 1.1rem; }
-  .work-meta { font-size: 0.9rem; }
-  .skill h3 { font-size: 1.25rem; }
-  .skill-can { font-size: 1rem; }
-  .skill-tools { font-size: 0.9rem; }
+  .work-meta { font-size: 1rem; }
+  .skill h3 { font-size: 1.4rem; }
+  .skill-can { font-size: 1.1rem; }
+  .skill-tools { font-size: 1rem; font-weight: 400; }
   .site-footer { font-size: 0.82rem; }
   .works-grid .work-body { gap: 0.35rem; margin-top: 1rem; }
 
@@ -258,7 +258,7 @@
         <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon class="fill" points="9.75 15.02 15.5 11.75 9.75 8.48"></polygon></svg><span class="skill-num">03</span></div>
         <h3>配信</h3>
         <p class="skill-can">技術設計・システム構築<br>機材選定・設営・スイッチング</p>
-        <p class="skill-tools">Blackmagic Design ATEM 4 M/E</p>
+        <p class="skill-tools">Blackmagic Design <span class="nowrap">ATEM 4 M/E</span></p>
       </div>
       <div class="skill reveal">
         <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-7 6-10 9-10s6 3 9 10"></path><circle class="fill" cx="12" cy="7" r="2"></circle><circle class="fill" cx="3" cy="17" r="1.5"></circle><circle class="fill" cx="21" cy="17" r="1.5"></circle></svg><span class="skill-num">04</span></div>
