@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation Works — Studio ORIGAMI</title>
+  <title>Animation — Tomohiro Shiratori</title>
+  <meta name="description" content="Tomohiro Shiratori のポートフォリオ（Animation）。映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Animation — Tomohiro Shiratori">
+  <meta property="og:description" content="映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:url" content="https://tspw2000xj-lab.github.io/tomohiro-shiratori/animation.html">
+  <meta property="og:image" content="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +23,9 @@
       --bg-main: #2D3F49;
       --bg-sub: #263039;
       --text-dark-bg: #ede8df;
-      --text-muted: #7E8A90;
-      --accent: #E60012;
-      --accent-sub: #FF6672;
+      --text-muted: #A8B2B8;
+      --accent: #FF9E94;
+      --accent-sub: #FF9E94;
       
       --font-en: 'Inter', sans-serif;
       --font-ja: 'Noto Sans JP', sans-serif;
@@ -187,7 +195,7 @@
 
     .video-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(230, 0, 18, 0.4);
+      border-color: rgba(255, 158, 148, 0.4);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
@@ -232,8 +240,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
+      color: #2D3F49;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
       transition: transform 0.3s ease;
     }
 
@@ -271,12 +279,26 @@
       line-height: 1.5;
     }
 
+    :focus-visible { outline: 2px solid var(--accent-sub); outline-offset: 4px; border-radius: 2px; }
+    .page-footer { max-width: var(--container-width); margin: 0 auto; padding: 0 5vw 3rem; }
+    .page-footer-inner { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); }
+    .page-footer a { color: var(--accent-sub); font-weight: 600; text-transform: uppercase; }
+    .page-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    @view-transition { navigation: auto; }
+
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="index.html#works" class="back-link">&larr;Back</a>
+    <a href="index.html#portfolio" class="back-link">&larr;Back</a>
+    <a href="index.html" class="header-logo">Tomohiro Shiratori</a>
   </header>
 
   <main class="page-container">
@@ -287,6 +309,7 @@
     <section class="main-video-section">
       <div class="video-wrapper">
         <iframe 
+          referrerpolicy="strict-origin-when-cross-origin"
           id="mainIframe"
           src="https://www.youtube.com/embed/3k1E8aL30ao?rel=0" 
           title="Animation Video Player" 
@@ -304,7 +327,7 @@
       <h3 class="section-label">All Works</h3>
       
       <div class="video-grid">
-        <article class="video-card" onclick="switchVideo('3k1E8aL30ao', 'SBSラジオパーク TVCM', '2020 ／ SBS静岡放送 ／ 担当：撮影・編集・CG')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('3k1E8aL30ao', 'SBSラジオパーク TVCM', '2020 ／ SBS静岡放送 ／ 担当：撮影・編集・CG')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/3k1E8aL30ao/hqdefault.jpg" alt="SBSラジオパーク TVCM" class="card-thumb">
             <div class="play-overlay">
@@ -319,7 +342,7 @@
           </div>
         </article>
 
-        <article class="video-card" onclick="switchVideo('buUK6ucd2s0', 'Soleいいね！ TVCM', '2019 ／ SBS静岡放送 ／ 担当：撮影・編集・CG')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('buUK6ucd2s0', 'Soleいいね！ TVCM', '2019 ／ SBS静岡放送 ／ 担当：撮影・編集・CG')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/buUK6ucd2s0/hqdefault.jpg" alt="Soleいいね！ TVCM" class="card-thumb">
             <div class="play-overlay">
@@ -334,7 +357,7 @@
           </div>
         </article>
 
-        <article class="video-card" onclick="switchVideo('AMtcriLrWlY', 'Animation', 'アニメーション作品')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('AMtcriLrWlY', 'Animation', 'アニメーション作品')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/AMtcriLrWlY/hqdefault.jpg" alt="Animation" class="card-thumb">
             <div class="play-overlay">
@@ -352,13 +375,33 @@
     </section>
   </main>
 
+  <footer class="page-footer">
+    <div class="page-footer-inner">
+      <a href="index.html#contact">Contact &rarr;</a>
+      <span>&copy; 2026 Tomohiro Shiratori</span>
+    </div>
+  </footer>
+
   <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function switchVideo(videoId, title, description) {
-      document.getElementById('mainIframe').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      // iframeを差し替えて、ブラウザの「戻る」に動画の切り替えが残らないようにする
+      const old = document.getElementById('mainIframe');
+      const next = old.cloneNode();
+      next.src = `https://www.youtube.com/embed/${videoId}?rel=0${reduceMotion ? '' : '&autoplay=1'}`;
+      old.replaceWith(next);
       document.getElementById('mainTitle').textContent = title;
       document.getElementById('mainDesc').textContent = description;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     }
+
+    // キーボード（Enter・スペース）でもカードを選べるようにする
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+    });
   </script>
 </body>
 </html>

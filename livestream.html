@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Stream Works — Studio ORIGAMI</title>
+  <title>Live Stream — Tomohiro Shiratori</title>
+  <meta name="description" content="Tomohiro Shiratori のポートフォリオ（Live Stream）。映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Live Stream — Tomohiro Shiratori">
+  <meta property="og:description" content="映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:url" content="https://tspw2000xj-lab.github.io/tomohiro-shiratori/livestream.html">
+  <meta property="og:image" content="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +23,9 @@
       --bg-main: #2D3F49;
       --bg-sub: #263039;
       --text-dark-bg: #ede8df;
-      --text-muted: #7E8A90;
-      --accent: #E60012;
-      --accent-sub: #FF6672;
+      --text-muted: #A8B2B8;
+      --accent: #FF9E94;
+      --accent-sub: #FF9E94;
       
       --font-en: 'Inter', sans-serif;
       --font-ja: 'Noto Sans JP', sans-serif;
@@ -187,7 +195,7 @@
 
     .video-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(230, 0, 18, 0.4);
+      border-color: rgba(255, 158, 148, 0.4);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
@@ -232,8 +240,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
+      color: #2D3F49;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
       transition: transform 0.3s ease;
     }
 
@@ -271,12 +279,26 @@
       line-height: 1.5;
     }
 
+    :focus-visible { outline: 2px solid var(--accent-sub); outline-offset: 4px; border-radius: 2px; }
+    .page-footer { max-width: var(--container-width); margin: 0 auto; padding: 0 5vw 3rem; }
+    .page-footer-inner { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); }
+    .page-footer a { color: var(--accent-sub); font-weight: 600; text-transform: uppercase; }
+    .page-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    @view-transition { navigation: auto; }
+
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="index.html#works" class="back-link">&larr;Back</a>
+    <a href="index.html#portfolio" class="back-link">&larr;Back</a>
+    <a href="index.html" class="header-logo">Tomohiro Shiratori</a>
   </header>
 
   <main class="page-container">
@@ -288,16 +310,17 @@
     <section class="main-video-section">
       <div class="video-wrapper">
         <iframe 
+          referrerpolicy="strict-origin-when-cross-origin"
           id="mainIframe"
-          src="https://www.youtube.com/embed/2_Wkyd6Qjgk?rel=0" 
+          src="https://www.youtube.com/embed/tQVwM5acLb0?rel=0" 
           title="Live Stream Player" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
           allowfullscreen>
         </iframe>
       </div>
       <div class="video-meta">
-        <h2 class="video-title" id="mainTitle">オリエンタルバイオ presents RiOの踊る♪ウィークエンド</h2>
-        <p class="video-desc" id="mainDesc">2025–2026 ／ 担当：技術設計・システム構築・CG</p>
+        <h2 class="video-title" id="mainTitle">なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重</h2>
+        <p class="video-desc" id="mainDesc">2020–2026 ／ 担当：技術設計・システム構築・CG</p>
       </div>
     </section>
 
@@ -307,39 +330,7 @@
       
       <div class="video-grid">
         <!-- Video 1 -->
-        <article class="video-card" onclick="switchVideo('2_Wkyd6Qjgk', 'オリエンタルバイオ presents RiOの踊る♪ウィークエンド', '2025–2026 ／ 担当：技術設計・システム構築・CG')">
-          <div class="card-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/2_Wkyd6Qjgk/hqdefault.jpg" alt="オリエンタルバイオ presents RiOの踊る♪ウィークエンド" class="card-thumb">
-            <div class="play-overlay">
-              <div class="play-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="card-info">
-            <h4 class="card-title">オリエンタルバイオ presents RiOの踊る♪ウィークエンド</h4>
-            <p class="card-desc">2025–2026 ／ 担当：技術設計・システム構築・CG</p>
-          </div>
-        </article>
-
-        <!-- Video 2 -->
-        <article class="video-card" onclick="switchVideo('nk0ud2RGf1U', 'しんきんカップ 第56回 静岡県中学選抜野球大会', '2025–2026 ／ 担当：技術設計・システム構築・CG・スロー')">
-          <div class="card-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/nk0ud2RGf1U/hqdefault.jpg" alt="しんきんカップ 第56回 静岡県中学選抜野球大会" class="card-thumb">
-            <div class="play-overlay">
-              <div class="play-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="card-info">
-            <h4 class="card-title">しんきんカップ 第56回 静岡県中学選抜野球大会</h4>
-            <p class="card-desc">2025–2026 ／ 担当：技術設計・システム構築・CG・スロー</p>
-          </div>
-        </article>
-
-        <!-- Video 3 -->
-        <article class="video-card" onclick="switchVideo('tQVwM5acLb0', 'なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重', '2025–2026 ／ 担当：技術設計・システム構築・CG')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('tQVwM5acLb0', 'なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重', '2020–2026 ／ 担当：技術設計・システム構築・CG')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/tQVwM5acLb0/hqdefault.jpg" alt="なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重" class="card-thumb">
             <div class="play-overlay">
@@ -350,20 +341,72 @@
           </div>
           <div class="card-info">
             <h4 class="card-title">なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重</h4>
-            <p class="card-desc">2025–2026 ／ 担当：技術設計・システム構築・CG</p>
+            <p class="card-desc">2020–2026 ／ 担当：技術設計・システム構築・CG</p>
+          </div>
+        </article>
+
+        <!-- Video 2 -->
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('2_Wkyd6Qjgk', 'オリエンタルバイオ presents RiOの踊る♪ウィークエンド', '2020–2026 ／ 担当：技術設計・システム構築・CG')">
+          <div class="card-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/2_Wkyd6Qjgk/hqdefault.jpg" alt="オリエンタルバイオ presents RiOの踊る♪ウィークエンド" class="card-thumb">
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4 class="card-title">オリエンタルバイオ presents RiOの踊る♪ウィークエンド</h4>
+            <p class="card-desc">2020–2026 ／ 担当：技術設計・システム構築・CG</p>
+          </div>
+        </article>
+
+        <!-- Video 3 -->
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('nk0ud2RGf1U', 'しんきんカップ 第56回 静岡県中学選抜野球大会', '2020–2026 ／ 担当：技術設計・システム構築・CG・スロー')">
+          <div class="card-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/nk0ud2RGf1U/hqdefault.jpg" alt="しんきんカップ 第56回 静岡県中学選抜野球大会" class="card-thumb">
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4 class="card-title">しんきんカップ 第56回 静岡県中学選抜野球大会</h4>
+            <p class="card-desc">2020–2026 ／ 担当：技術設計・システム構築・CG・スロー</p>
           </div>
         </article>
       </div>
     </section>
   </main>
 
+  <footer class="page-footer">
+    <div class="page-footer-inner">
+      <a href="index.html#contact">Contact &rarr;</a>
+      <span>&copy; 2026 Tomohiro Shiratori</span>
+    </div>
+  </footer>
+
   <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function switchVideo(videoId, title, description) {
-      document.getElementById('mainIframe').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      // iframeを差し替えて、ブラウザの「戻る」に動画の切り替えが残らないようにする
+      const old = document.getElementById('mainIframe');
+      const next = old.cloneNode();
+      next.src = `https://www.youtube.com/embed/${videoId}?rel=0${reduceMotion ? '' : '&autoplay=1'}`;
+      old.replaceWith(next);
       document.getElementById('mainTitle').textContent = title;
       document.getElementById('mainDesc').textContent = description;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     }
+
+    // キーボード（Enter・スペース）でもカードを選べるようにする
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+    });
   </script>
 </body>
 </html>

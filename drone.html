@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drone Works — Studio ORIGAMI</title>
+  <title>Drone — Tomohiro Shiratori</title>
+  <meta name="description" content="Tomohiro Shiratori のポートフォリオ（Drone）。映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Drone — Tomohiro Shiratori">
+  <meta property="og:description" content="映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:url" content="https://tspw2000xj-lab.github.io/tomohiro-shiratori/drone.html">
+  <meta property="og:image" content="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +23,9 @@
       --bg-main: #2D3F49;
       --bg-sub: #263039;
       --text-dark-bg: #ede8df;
-      --text-muted: #7E8A90;
-      --accent: #E60012;
-      --accent-sub: #FF6672;
+      --text-muted: #A8B2B8;
+      --accent: #FF9E94;
+      --accent-sub: #FF9E94;
       
       --font-en: 'Inter', sans-serif;
       --font-ja: 'Noto Sans JP', sans-serif;
@@ -154,12 +162,26 @@
       line-height: 1.7;
     }
 
+    :focus-visible { outline: 2px solid var(--accent-sub); outline-offset: 4px; border-radius: 2px; }
+    .page-footer { max-width: var(--container-width); margin: 0 auto; padding: 0 5vw 3rem; }
+    .page-footer-inner { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); }
+    .page-footer a { color: var(--accent-sub); font-weight: 600; text-transform: uppercase; }
+    .page-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    @view-transition { navigation: auto; }
+
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="index.html#works" class="back-link">&larr;Back</a>
+    <a href="index.html#portfolio" class="back-link">&larr;Back</a>
+    <a href="index.html" class="header-logo">Tomohiro Shiratori</a>
   </header>
 
   <main class="page-container">
@@ -170,6 +192,7 @@
     <section class="main-video-section">
       <div class="video-wrapper">
         <iframe 
+          referrerpolicy="strict-origin-when-cross-origin"
           id="mainIframe"
           src="https://www.youtube.com/embed/JmegDplcblQ?rel=0" 
           title="Drone Player" 
@@ -179,10 +202,17 @@
       </div>
       <div class="video-meta">
         <h2 class="video-title" id="mainTitle">ドローン空撮</h2>
-        <p class="video-desc" id="mainDesc">2025–2026 ／ 番組用空撮 ／ 担当：撮影</p>
+        <p class="video-desc" id="mainDesc">2020–2026 ／ 番組用空撮 ／ 担当：撮影</p>
       </div>
     </section>
   </main>
+
+  <footer class="page-footer">
+    <div class="page-footer-inner">
+      <a href="index.html#contact">Contact &rarr;</a>
+      <span>&copy; 2026 Tomohiro Shiratori</span>
+    </div>
+  </footer>
 
 </body>
 </html>

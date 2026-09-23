@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design Works — Studio ORIGAMI</title>
+  <title>Design — Tomohiro Shiratori</title>
+  <meta name="description" content="Tomohiro Shiratori のポートフォリオ（Design）。映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Design — Tomohiro Shiratori">
+  <meta property="og:description" content="映像制作・ライブ配信・デザインの作品集です。">
+  <meta property="og:url" content="https://tspw2000xj-lab.github.io/tomohiro-shiratori/design.html">
+  <meta property="og:image" content="https://tspw2000xj-lab.github.io/tomohiro-shiratori/03.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +23,9 @@
       --bg-main: #2D3F49;
       --bg-sub: #263039;
       --text-dark-bg: #ede8df;
-      --text-muted: #7E8A90;
-      --accent: #E60012;
-      --accent-sub: #FF6672;
+      --text-muted: #A8B2B8;
+      --accent: #FF9E94;
+      --accent-sub: #FF9E94;
 
       --font-en: 'Inter', sans-serif;
       --font-ja: 'Noto Sans JP', sans-serif;
@@ -134,6 +142,7 @@
       color: var(--text-muted);
       cursor: pointer;
       padding: 0.4rem 0;
+      min-height: 44px;
       position: relative;
       transition: color 0.3s ease;
     }
@@ -145,7 +154,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--accent);
+      background-color: var(--accent-sub);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -180,7 +189,7 @@
 
     .card:hover {
       transform: translateY(-5px);
-      border-color: rgba(230, 0, 18, 0.4);
+      border-color: rgba(255, 158, 148, 0.4);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
@@ -298,15 +307,31 @@
     }
 
     @media (max-width: 600px) {
+      .nav-links { flex-wrap: nowrap; overflow-x: auto; gap: 0 1.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .nav-link-btn { white-space: nowrap; flex-shrink: 0; }
       .lightbox { padding: 3.5rem 1rem 2rem; }
       .lightbox-img { max-height: 66vh; }
     }
+    :focus-visible { outline: 2px solid var(--accent-sub); outline-offset: 4px; border-radius: 2px; }
+    .page-footer { max-width: var(--container-width); margin: 0 auto; padding: 0 5vw 3rem; }
+    .page-footer-inner { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); }
+    .page-footer a { color: var(--accent-sub); font-weight: 600; text-transform: uppercase; }
+    .page-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    @view-transition { navigation: auto; }
+
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="index.html#works" class="back-link">&larr;Back</a>
+    <a href="index.html#portfolio" class="back-link">&larr;Back</a>
+    <a href="index.html" class="header-logo">Tomohiro Shiratori</a>
   </header>
 
   <main class="page-container">
@@ -315,77 +340,84 @@
     </div>
 
     <div class="nav-links">
-      <button class="nav-link-btn active" onclick="showCategory('all', event)">All</button>
-      <button class="nav-link-btn" onclick="showCategory('editorial', event)">Editorial Design</button>
-      <button class="nav-link-btn" onclick="showCategory('logo', event)">Logo Design</button>
-      <button class="nav-link-btn" onclick="showCategory('character', event)">Character Design</button>
+      <button class="nav-link-btn active" aria-pressed="true" onclick="showCategory('all', event)">All</button>
+      <button class="nav-link-btn" aria-pressed="false" onclick="showCategory('editorial', event)">Editorial Design</button>
+      <button class="nav-link-btn" aria-pressed="false" onclick="showCategory('logo', event)">Logo Design</button>
+      <button class="nav-link-btn" aria-pressed="false" onclick="showCategory('character', event)">Character Design</button>
     </div>
 
     <div class="gallery-section" id="gallery">
 
       <!-- Editorial Design (01〜04) -->
-      <div class="card" data-category="editorial">
+      <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="01.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
         <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2013 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
-      <div class="card" data-category="editorial">
+      <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="02.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
         <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2012 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
-      <div class="card" data-category="editorial">
+      <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="03.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
         <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2010 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
-      <div class="card" data-category="editorial">
-        <div class="image-container"><img src="04.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
+      <div class="card" tabindex="0" role="button" data-category="editorial">
+        <div class="image-container"><img src="04.jpg" loading="lazy" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
         <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2010 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
 
       <!-- Logo Design (05〜09) -->
-      <div class="card" data-category="logo">
-        <div class="image-container"><img src="05.jpg" alt="イベントロゴ"></div>
+      <div class="card" tabindex="0" role="button" data-category="logo">
+        <div class="image-container"><img src="05.jpg" loading="lazy" alt="イベントロゴ"></div>
         <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">2009<br>担当：ロゴデザイン</span></div>
       </div>
-      <div class="card" data-category="logo">
-        <div class="image-container"><img src="06.jpg" alt="イベントロゴ"></div>
+      <div class="card" tabindex="0" role="button" data-category="logo">
+        <div class="image-container"><img src="06.jpg" loading="lazy" alt="イベントロゴ"></div>
         <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">2008<br>担当：ロゴデザイン</span></div>
       </div>
-      <div class="card" data-category="logo">
-        <div class="image-container"><img src="07.jpg" alt="番組タイトルロゴ"></div>
+      <div class="card" tabindex="0" role="button" data-category="logo">
+        <div class="image-container"><img src="07.jpg" loading="lazy" alt="番組タイトルロゴ"></div>
         <div class="card-info"><span class="card-title">番組タイトルロゴ</span><span class="card-meta">2020<br>担当：ロゴデザイン</span></div>
       </div>
-      <div class="card" data-category="logo">
-        <div class="image-container"><img src="08.jpg" alt="企画ロゴ"></div>
+      <div class="card" tabindex="0" role="button" data-category="logo">
+        <div class="image-container"><img src="08.jpg" loading="lazy" alt="企画ロゴ"></div>
         <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">2018<br>担当：ロゴデザイン</span></div>
       </div>
-      <div class="card" data-category="logo">
-        <div class="image-container"><img src="09.jpg" alt="企画ロゴ"></div>
+      <div class="card" tabindex="0" role="button" data-category="logo">
+        <div class="image-container"><img src="09.jpg" loading="lazy" alt="企画ロゴ"></div>
         <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">2017<br>担当：ロゴデザイン</span></div>
       </div>
 
       <!-- Character Design (panda_01〜04) -->
-      <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_01.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+      <div class="card" tabindex="0" role="button" data-category="character">
+        <div class="image-container"><img src="panda_01.jpg" loading="lazy" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
         <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
-      <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_02.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+      <div class="card" tabindex="0" role="button" data-category="character">
+        <div class="image-container"><img src="panda_02.jpg" loading="lazy" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
         <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
-      <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_03.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+      <div class="card" tabindex="0" role="button" data-category="character">
+        <div class="image-container"><img src="panda_03.jpg" loading="lazy" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
         <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
-      <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_04.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+      <div class="card" tabindex="0" role="button" data-category="character">
+        <div class="image-container"><img src="panda_04.jpg" loading="lazy" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
         <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
 
     </div>
   </main>
 
+  <footer class="page-footer">
+    <div class="page-footer-inner">
+      <a href="index.html#contact">Contact &rarr;</a>
+      <span>&copy; 2026 Tomohiro Shiratori</span>
+    </div>
+  </footer>
+
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="作品の拡大表示" aria-hidden="true">
     <button class="lightbox-close" type="button" aria-label="閉じる">&times;</button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="">
     <div class="lightbox-caption">
@@ -399,7 +431,11 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
 
+    const closeBtn = document.querySelector('.lightbox-close');
+    let lastFocused = null;
+
     function openLightbox(card) {
+      lastFocused = card;
       const img = card.querySelector('img');
       lightboxImg.src = img.getAttribute('src');
       lightboxImg.alt = img.getAttribute('alt') || '';
@@ -408,28 +444,33 @@
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      closeBtn.focus();
     }
 
     function closeLightbox() {
       lightbox.classList.remove('is-open');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
     }
 
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => openLightbox(card));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(card); }
+      });
     });
 
     lightbox.addEventListener('click', closeLightbox);
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
     });
 
     // カテゴリ切り替えフィルター処理
     function showCategory(category, e) {
       const buttons = document.querySelectorAll('.nav-link-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      if (e) e.target.classList.add('active');
+      buttons.forEach(btn => { btn.classList.remove('active'); btn.setAttribute('aria-pressed', 'false'); });
+      if (e) { e.target.classList.add('active'); e.target.setAttribute('aria-pressed', 'true'); }
 
       const cards = document.querySelectorAll('.card');
       cards.forEach(card => {

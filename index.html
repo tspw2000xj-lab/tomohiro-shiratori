@@ -1,197 +1,311 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet" />
+<script>document.documentElement.classList.add('js');</script>
+<title>Tomohiro Shiratori｜映像・配信・デザイン ポートフォリオ</title>
+<meta name="description" content="Tomohiro Shiratori のポートフォリオ。映像制作・ライブ配信・デザインの作品集です。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tomohiro Shiratori｜映像・配信・デザイン ポートフォリオ">
+<meta property="og:description" content="映像制作・ライブ配信・デザインの作品集です。">
+<meta property="og:url" content="https://tspw2000xj-lab.github.io/tomohiro-shiratori/">
+<meta property="og:image" content="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg-main: #2D3F49;
+    --bg-sub: #263039;
+    --bg-thumb: #1a232a;
+    --text: #ede8df;
+    --text-muted: #A8B2B8;
+    --accent-on-dark: #FF9E94;
+    --line: rgba(255,255,255,0.08);
+    --font-en: 'Inter', sans-serif;
+    --font-ja: 'Noto Sans JP', sans-serif;
+    --ease: cubic-bezier(0.16,1,0.3,1);
+  }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background-color: #2D3F49; color: #ede8df; font-family: 'Noto Sans JP', sans-serif; font-feature-settings: "palt"; letter-spacing: 0.06em; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  a { color: #FF6672; text-decoration: none; }
-  a:hover { color: #E60012; }
+  body { background: var(--bg-main); color: var(--text); font-family: var(--font-ja); font-feature-settings: "palt"; letter-spacing: 0.06em; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
   ul { list-style: none; }
-  @keyframes riseIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  img { display: block; }
+  :focus-visible { outline: 2px solid var(--accent-on-dark); outline-offset: 4px; border-radius: 2px; }
+
   @keyframes maskUp { from { transform: translateY(105%); } to { transform: translateY(0); } }
   @keyframes ruleGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .portfolio-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .portfolio-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  /* ヘッダー */
+  .site-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.25rem 5vw; display: flex; justify-content: flex-end; align-items: center; }
+  .site-header::before { content: ""; position: absolute; inset: 0; background: rgba(45,63,73,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+  .site-header.is-scrolled::before { opacity: 1; }
+  .site-nav { position: relative; }
+  .site-nav ul { display: flex; gap: 2.75rem; align-items: center; }
+  .site-nav a { font-family: var(--font-en); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; }
+  .site-nav a:hover { color: var(--accent-on-dark); border-bottom-color: var(--accent-on-dark); }
+
+  /* ヒーロー */
+  .portfolio { padding: 9.5rem 8vw 8rem; }
+  .hero { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; margin: 0 auto 4.5rem; width: fit-content; max-width: 100%; }
+  .hero-name { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.32em; font-family: var(--font-en); font-size: clamp(2.6rem, 8.4vw, 7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; text-transform: uppercase; }
+  .hero-name > span { display: block; overflow: hidden; padding-bottom: 0.06em; }
+  .hero-name > span > span { display: block; transform: translateY(105%); animation: maskUp 1.05s var(--ease) forwards; }
+  .hero-name > span:nth-child(1) > span { animation-delay: 0.1s; }
+  .hero-name > span:nth-child(2) > span { animation-delay: 0.24s; }
+  .hero-rule { width: 100%; height: 1px; background: rgba(255,255,255,0.14); transform: scaleX(0); transform-origin: left; animation: ruleGrow 1.1s var(--ease) forwards 0.5s; }
+  .hero-role { font-size: clamp(0.95rem, 1.9vw, 1.35rem); font-weight: 400; letter-spacing: 0.24em; text-indent: 0.24em; color: var(--accent-on-dark); text-align: center; opacity: 0; animation: fadeIn 0.9s ease forwards 0.75s; }
+
+  /* 作品 */
+  .work-thumb { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--bg-thumb); overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07); }
+  .work-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+  .work-thumb img.is-contain { object-fit: contain; background: #12181c; }
+  .work:hover .work-thumb img { transform: scale(1.05); }
+  .work-cat { font-family: var(--font-en); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-on-dark); }
+  .work-title { font-weight: 700; color: var(--text); line-height: 1.5; }
+  .work-meta { font-size: 0.8rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+  .featured { margin-bottom: 3.5rem; }
+  .featured-link { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+  .nowrap { white-space: nowrap; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .featured-body { display: flex; flex-direction: column; gap: 0.6rem; }
+  .featured .work-title { font-size: clamp(1.2rem, 2.2vw, 1.6rem); }
+  .featured .work-meta { font-size: 0.88rem; }
+  .featured-more { margin-top: 0.9rem; font-family: var(--font-en); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-on-dark); display: inline-flex; align-items: center; gap: 0.5em; }
+  .featured-more span { transition: transform 0.4s var(--ease); }
+  .work:hover .featured-more span { transform: translateX(4px); }
+
+  .works-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
+  .works-grid .work-body { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 0.2rem; }
+  .works-grid .work-title { font-size: 0.95rem; }
+
+  /* スキル */
+  .skills { background: var(--bg-sub); padding: 6.5rem 8vw; }
+  .section-title { font-family: var(--font-en); font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -0.015em; text-transform: uppercase; line-height: 1; margin-bottom: 2.75rem; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .skill-can, .work-title, .work-meta { word-break: auto-phrase; }
+  .skill { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.3rem; border-radius: 4px; }
+  .skill-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; }
+  .skill-head svg { width: 26px; height: 26px; stroke: var(--accent-on-dark); stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .skill-head .fill { fill: var(--accent-on-dark); }
+  .skill-num { font-family: var(--font-en); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1; color: var(--accent-on-dark); width: 2.5em; height: 2.5em; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--accent-on-dark); border-radius: 50%; }
+  .skill h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .skill-can { font-size: 0.88rem; line-height: 1.75; color: var(--text); }
+  .skill-tools { margin-top: 0.7rem; font-family: var(--font-en); font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+
+  /* 連絡先 */
+  .contact { padding: 8rem 8vw 3rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  .contact-mail { font-family: var(--font-en); font-size: clamp(1.15rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: 0.01em; color: var(--accent-on-dark); padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.4s var(--ease); display: inline-flex; align-items: center; gap: 0.65em; word-break: break-all; }
+  .contact-mail:hover { border-bottom-color: var(--accent-on-dark); }
+  .contact-mail svg { width: 0.95em; height: 0.95em; flex-shrink: 0; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .site-footer { margin-top: 6rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-family: var(--font-en); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-muted); }
+
+  /* スクロールで順番に表示 */
+  @view-transition { navigation: auto; }
+  .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+  .js .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* 文字を大きく（PCで読みやすく） */
+  .site-nav a { font-size: 0.88rem; }
+  .hero-role { font-size: clamp(1.05rem, 2vw, 1.5rem); }
+  .featured .work-title { font-size: clamp(1.3rem, 2.4vw, 1.85rem); }
+  .featured .work-meta { font-size: 0.95rem; }
+  .featured-more { font-size: 0.88rem; }
+  .works-grid .work-title { font-size: 1.1rem; }
+  .work-meta { font-size: 0.9rem; }
+  .skill h3 { font-size: 1.25rem; }
+  .skill-can { font-size: 1rem; }
+  .skill-tools { font-size: 0.9rem; }
+  .site-footer { font-size: 0.82rem; }
+  .works-grid .work-body { gap: 0.35rem; margin-top: 1rem; }
+
+  /* カテゴリのラベル（枠つき）と、押せる目印の矢印 */
+  .work-cat { display: inline-flex; align-self: flex-start; align-items: center; gap: 0.5em; font-size: 0.8rem; padding: 0.35em 0.9em; border: 1px solid var(--accent-on-dark); border-radius: 999px; line-height: 1.2; }
+  .works-grid .work-cat::after { content: "\2192"; transition: transform 0.4s var(--ease); }
+  .work:hover .work-cat::after { transform: translateX(3px); }
+
+  @media (max-width: 900px) {
+    .featured-link { grid-template-columns: 1fr; gap: 1.25rem; }
+    .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (max-width: 640px) {
-    .portfolio-groups { gap: 1.75rem; }
-    .portfolio-grid-2, .portfolio-grid-3 { grid-template-columns: 1fr; gap: 1.75rem; }
+    .site-nav ul { gap: 1.75rem; }
+    .portfolio { padding-top: 8rem; }
+    .works-grid { gap: 1.75rem 1rem; }
+  }
+  @media (max-width: 560px) {
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 420px) {
+    .works-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; transition-duration: 0.01ms !important; }
   }
 </style>
-</helmet>
+</head>
+<body>
 
-<div style="width: 100%; background: #2D3F49">
+<header class="site-header" id="siteHeader">
+  <nav class="site-nav" aria-label="メインメニュー">
+    <ul>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.25rem 5vw; display: flex; justify-content: flex-end; align-items: center">
-    <div style="position: absolute; inset: 0; background: rgba(45,63,73,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: opacity 0.4s ease; pointer-events: none; opacity: {{ headerVeil }}"></div>
-    <nav style="position: relative">
-      <ul style="display: flex; gap: 2.75rem; align-items: center">
-        <li><a href="#portfolio" style="font-family: Inter, sans-serif; font-size: 0.8rem; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: {{ chromeMuted }}; transition: color 0.3s ease; padding-bottom: 3px; border-bottom: 1px solid transparent" style-hover="color: #E60012; border-bottom-color: #E60012">Portfolio</a></li>
-        <li><a href="#skills" style="font-family: Inter, sans-serif; font-size: 0.8rem; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: {{ chromeMuted }}; transition: color 0.3s ease; padding-bottom: 3px; border-bottom: 1px solid transparent" style-hover="color: #E60012; border-bottom-color: #E60012">Skills</a></li>
-        <li><a href="#contact" style="font-family: Inter, sans-serif; font-size: 0.8rem; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: {{ chromeMuted }}; transition: color 0.3s ease; padding-bottom: 3px; border-bottom: 1px solid transparent" style-hover="color: #E60012; border-bottom-color: #E60012">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<main>
+  <section id="portfolio" class="portfolio">
+    <div class="hero">
+      <h1 class="hero-name"><span><span>Tomohiro</span></span><span><span>Shiratori</span></span></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-role">映像制作・ライブ配信・デザイン</p>
+    </div>
 
-  <main>
-    <section id="portfolio" data-screen-label="Portfolio" style="background: #2D3F49; padding: 9.5rem 8vw 8rem">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 1.1rem; margin-bottom: 4.5rem; width: fit-content; max-width: 100%; margin-left: auto; margin-right: auto">
-        <h1 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.32em; font-family: Inter, sans-serif; font-size: clamp(2.6rem, 8.4vw, 7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; text-transform: uppercase; color: #ede8df">
-          <span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span style="display: block; transform: translateY(105%); animation: maskUp 1.05s cubic-bezier(0.16,1,0.3,1) forwards 0.1s">Tomohiro</span></span>
-          <span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span style="display: block; transform: translateY(105%); animation: maskUp 1.05s cubic-bezier(0.16,1,0.3,1) forwards 0.24s">Shiratori</span></span>
-        </h1>
-        <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.14); transform: scaleX(0); transform-origin: left; animation: ruleGrow 1.1s cubic-bezier(0.16,1,0.3,1) forwards 0.5s"></div>
-        <div style="display: flex; justify-content: center; width: 100%; opacity: 0; animation: fadeIn 0.9s ease forwards 0.75s">
-          <h2 style="font-family: Inter, sans-serif; font-size: clamp(1rem, 2.1vw, 1.55rem); font-weight: 600; letter-spacing: 0.38em; text-indent: 0.38em; text-transform: uppercase; line-height: 1; color: #FF6672">Portfolio</h2>
+    <h2 class="sr-only">Works</h2>
+    <article class="work featured reveal">
+      <a href="livestream.html" class="featured-link">
+        <div class="work-thumb">
+          <img src="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg" alt="なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重 ライブ配信のサムネイル">
         </div>
+        <div class="featured-body">
+          <span class="work-cat">Live Stream</span>
+          <h3 class="work-title">なでしこリーグ <span class="nowrap">静岡SSUボニータ</span> vs <span class="nowrap">伊賀FCくノ一三重</span></h3>
+          <p class="work-meta">担当：技術設計・システム構築・CG</p>
+          <span class="featured-more">View works <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+    </article>
+
+    <div class="works-grid">
+      <article class="work reveal">
+        <a href="movie.html">
+          <div class="work-thumb"><img src="https://img.youtube.com/vi/SZHCxB6_eeI/maxresdefault.jpg" alt="ウェディング エンドロール" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-cat">Movie</span>
+            <h3 class="work-title">ウェディング エンドロール</h3>
+            <p class="work-meta">担当：撮影・編集</p>
+          </div>
+        </a>
+      </article>
+      <article class="work reveal">
+        <a href="drone.html">
+          <div class="work-thumb"><img src="https://img.youtube.com/vi/JmegDplcblQ/maxresdefault.jpg" alt="ドローン空撮" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-cat">Drone</span>
+            <h3 class="work-title">ドローン空撮</h3>
+            <p class="work-meta">番組用空撮 ／ 担当：撮影</p>
+          </div>
+        </a>
+      </article>
+      <article class="work reveal">
+        <a href="animation.html">
+          <div class="work-thumb"><img src="https://img.youtube.com/vi/3k1E8aL30ao/maxresdefault.jpg" alt="アニメーション作品" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-cat">Animation</span>
+            <h3 class="work-title">TVCM・アニメーション</h3>
+            <p class="work-meta">担当：撮影・編集・CG</p>
+          </div>
+        </a>
+      </article>
+      <article class="work reveal">
+        <a href="design.html">
+          <div class="work-thumb"><img src="03.jpg" class="is-contain" alt="デザイン作品" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-cat">Design</span>
+            <h3 class="work-title">誌面・ロゴ・キャラクター</h3>
+            <p class="work-meta">担当：デザイン</p>
+          </div>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2 class="section-title reveal">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill reveal">
+        <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="8" x2="22" y2="8"></line><line x1="2" y1="16" x2="22" y2="16"></line><line x1="7" y1="4" x2="7" y2="8"></line><line x1="17" y1="4" x2="17" y2="8"></line><line x1="7" y1="16" x2="7" y2="20"></line><line x1="17" y1="16" x2="17" y2="20"></line></svg><span class="skill-num">01</span></div>
+        <h3>映像編集</h3>
+        <p class="skill-can">企画・編集・テロップ制作<br>スロー再生・ハイライト制作</p>
+        <p class="skill-tools">Premiere Pro / Final Cut Pro</p>
       </div>
-
-      <div class="portfolio-groups" style="display: flex; flex-direction: column; gap: 2.25rem">
-        <div class="portfolio-grid-2" style="display: grid; gap: 2.25rem 1.75rem">
-          <article>
-            <a href="movie.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
-              <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
-                <img src="https://img.youtube.com/vi/SZHCxB6_eeI/maxresdefault.jpg" alt="Movie" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%) contrast(103%); transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease" style-hover="transform: scale(1.05); filter: grayscale(0%)" />
-              </div>
-              <div style="margin-top: 1rem; text-align: center">
-                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ede8df">Movie</h3>
-              </div>
-            </a>
-          </article>
-
-          <article>
-            <a href="drone.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
-              <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
-                <img src="https://img.youtube.com/vi/JmegDplcblQ/maxresdefault.jpg" alt="Drone Photography" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%) contrast(103%); transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease" style-hover="transform: scale(1.05); filter: grayscale(0%)" />
-              </div>
-              <div style="margin-top: 1rem; text-align: center">
-                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ede8df">Drone Photography</h3>
-              </div>
-            </a>
-          </article>
-        </div>
-
-        <div class="portfolio-grid-3" style="display: grid; gap: 2.25rem 1.75rem">
-          <article>
-            <a href="livestream.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
-              <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
-                <img src="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg" alt="Live Stream" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%) contrast(103%); transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease" style-hover="transform: scale(1.05); filter: grayscale(0%)" />
-              </div>
-              <div style="margin-top: 1rem; text-align: center">
-                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ede8df">Live Stream</h3>
-              </div>
-            </a>
-          </article>
-
-          <article>
-            <a href="animation.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
-              <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
-                <img src="https://img.youtube.com/vi/3k1E8aL30ao/maxresdefault.jpg" alt="Animation" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%) contrast(103%); transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease" style-hover="transform: scale(1.05); filter: grayscale(0%)" />
-              </div>
-              <div style="margin-top: 1rem; text-align: center">
-                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ede8df">Animation</h3>
-              </div>
-            </a>
-          </article>
-
-          <article>
-            <a href="design.html" style="display: block; color: inherit; text-decoration: none" style-hover="color: inherit">
-              <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; overflow: hidden; border-radius: 3px; border: 1px solid rgba(255,255,255,0.07)">
-                <img src="03.jpg" alt="Design" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; background: #12181c; filter: grayscale(12%) contrast(103%); transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease" style-hover="transform: scale(1.05); filter: grayscale(0%)" />
-              </div>
-              <div style="margin-top: 1rem; text-align: center">
-                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ede8df">Design</h3>
-              </div>
-            </a>
-          </article>
-        </div>
+      <div class="skill reveal">
+        <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span class="skill-num">02</span></div>
+        <h3>撮影</h3>
+        <p class="skill-can">番組用の撮影・ドローン空撮</p>
+        <p class="skill-tools">Canon EOS 5D / DJI Air 3</p>
       </div>
-    </section>
-
-    <section id="skills" data-screen-label="Skills" style="background: #263039; padding: 6.5rem 8vw">
-      <div style="display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.75rem">
-        <h2 style="font-family: Inter, sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -0.015em; text-transform: uppercase; line-height: 1; color: #ede8df">Skills</h2>
+      <div class="skill reveal">
+        <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon class="fill" points="9.75 15.02 15.5 11.75 9.75 8.48"></polygon></svg><span class="skill-num">03</span></div>
+        <h3>配信</h3>
+        <p class="skill-can">技術設計・システム構築<br>機材選定・設営・スイッチング</p>
+        <p class="skill-tools">Blackmagic Design ATEM 4 M/E</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem">
-        <div style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.2rem; border-radius: 4px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1.1rem"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; stroke: #FF6672; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="8" x2="22" y2="8"></line><line x1="2" y1="16" x2="22" y2="16"></line><line x1="7" y1="4" x2="7" y2="8"></line><line x1="17" y1="4" x2="17" y2="8"></line><line x1="7" y1="16" x2="7" y2="20"></line><line x1="17" y1="16" x2="17" y2="20"></line></svg><span style="font-family: Inter, sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: #E60012">01</span></div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; color: #ede8df; margin-bottom: 0.55rem">映像編集</h3>
-          <div style="font-family: Inter, sans-serif; font-size: 0.85rem; font-weight: 300; color: #7E8A90; line-height: 1.7">Premiere Pro</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.2rem; border-radius: 4px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1.1rem"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; stroke: #FF6672; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span style="font-family: Inter, sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: #E60012">02</span></div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; color: #ede8df; margin-bottom: 0.55rem">撮影</h3>
-          <div style="font-family: Inter, sans-serif; font-size: 0.85rem; font-weight: 300; color: #7E8A90; line-height: 1.7">Canon EOS 5D<br />DJI Air 3</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.2rem; border-radius: 4px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1.1rem"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; stroke: #FF6672; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48" style="fill: #FF6672"></polygon></svg><span style="font-family: Inter, sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: #E60012">03</span></div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; color: #ede8df; margin-bottom: 0.55rem">配信</h3>
-          <div style="font-family: Inter, sans-serif; font-size: 0.85rem; font-weight: 300; color: #7E8A90; line-height: 1.7">Blackmagic Design<br />ATEM 4 M/E</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.2rem; border-radius: 4px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1.1rem"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; stroke: #FF6672; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round"><path d="M3 17c3-7 6-10 9-10s6 3 9 10"></path><circle cx="12" cy="7" r="2" style="fill: #FF6672"></circle><circle cx="3" cy="17" r="1.5" style="fill: #FF6672"></circle><circle cx="21" cy="17" r="1.5" style="fill: #FF6672"></circle></svg><span style="font-family: Inter, sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: #E60012">04</span></div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; color: #ede8df; margin-bottom: 0.55rem">アニメーション</h3>
-          <div style="font-family: Inter, sans-serif; font-size: 0.85rem; font-weight: 300; color: #7E8A90; line-height: 1.7">After Effects</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 1.2rem; border-radius: 4px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1.1rem"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; stroke: #FF6672; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.92 0 1.67-.75 1.67-1.67 0-.42-.16-.81-.43-1.1-.27-.29-.44-.69-.44-1.13 0-.92.75-1.67 1.67-1.67H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"></path><circle cx="6.5" cy="11.5" r="1.4" style="fill: #FF6672"></circle><circle cx="9.5" cy="7.5" r="1.4" style="fill: #FF6672"></circle><circle cx="14.5" cy="7.5" r="1.4" style="fill: #FF6672"></circle><circle cx="17.5" cy="11.5" r="1.4" style="fill: #FF6672"></circle></svg><span style="font-family: Inter, sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: #E60012">05</span></div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; color: #ede8df; margin-bottom: 0.55rem">デザイン</h3>
-          <div style="font-family: Inter, sans-serif; font-size: 0.85rem; font-weight: 300; color: #7E8A90; line-height: 1.7">Illustrator<br />Photoshop</div>
-        </div>
+      <div class="skill reveal">
+        <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-7 6-10 9-10s6 3 9 10"></path><circle class="fill" cx="12" cy="7" r="2"></circle><circle class="fill" cx="3" cy="17" r="1.5"></circle><circle class="fill" cx="21" cy="17" r="1.5"></circle></svg><span class="skill-num">04</span></div>
+        <h3>アニメーション</h3>
+        <p class="skill-can">ニュース・番組のCG・テロップ</p>
+        <p class="skill-tools">After Effects</p>
       </div>
-    </section>
-
-    <section id="contact" data-screen-label="Contact" style="background: #2D3F49; padding: 8rem 8vw 9rem; border-top: 1px solid rgba(255,255,255,0.05)">
-      <div style="display: flex; flex-direction: column; gap: 3rem">
-        <h2 style="font-family: Inter, sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -0.015em; text-transform: uppercase; line-height: 1; color: #ede8df">Contact</h2>
-        <div style="display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start">
-          <a href="mailto:tspw2000xj@gmail.com" style="font-family: Inter, sans-serif; font-size: clamp(1.15rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: 0.01em; color: #FF6672; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.4s cubic-bezier(0.16,1,0.3,1), color 0.3s ease; display: inline-flex; align-items: center; gap: 0.65em" style-hover="border-bottom-color: #FF6672; color: #FF6672"><svg viewBox="0 0 24 24" style="width: 0.95em; height: 0.95em; flex-shrink: 0; stroke: #FF6672; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg><span>tspw2000xj@gmail.com</span></a>
-          <a href="tel:09076716585" style="font-family: Inter, sans-serif; font-size: clamp(1.15rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: 0.01em; color: #FF6672; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.4s cubic-bezier(0.16,1,0.3,1), color 0.3s ease; display: inline-flex; align-items: center; gap: 0.65em" style-hover="border-bottom-color: #FF6672; color: #FF6672"><svg viewBox="0 0 24 24" style="width: 0.95em; height: 0.95em; flex-shrink: 0; stroke: #FF6672; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg><span>090-7671-6585</span></a>
-        </div>
+      <div class="skill reveal">
+        <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.92 0 1.67-.75 1.67-1.67 0-.42-.16-.81-.43-1.1-.27-.29-.44-.69-.44-1.13 0-.92.75-1.67 1.67-1.67H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"></path><circle class="fill" cx="6.5" cy="11.5" r="1.4"></circle><circle class="fill" cx="9.5" cy="7.5" r="1.4"></circle><circle class="fill" cx="14.5" cy="7.5" r="1.4"></circle><circle class="fill" cx="17.5" cy="11.5" r="1.4"></circle></svg><span class="skill-num">05</span></div>
+        <h3>デザイン</h3>
+        <p class="skill-can">誌面・表紙<br>CM・フリップ・番組小物</p>
+        <p class="skill-tools">Illustrator / Photoshop</p>
       </div>
-    </section>
-  </main>
+      <div class="skill reveal">
+        <div class="skill-head"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="12" rx="1"></rect><line x1="7" y1="15" x2="7" y2="21"></line><line x1="17" y1="15" x2="17" y2="21"></line><line x1="4" y1="21" x2="20" y2="21"></line><line x1="6" y1="7" x2="11" y2="7"></line><line x1="6" y1="11" x2="15" y2="11"></line></svg><span class="skill-num">06</span></div>
+        <h3>大型ビジョン</h3>
+        <p class="skill-can">Jリーグ・野球のオペレーション</p>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section id="contact" class="contact">
+    <h2 class="section-title reveal">Contact</h2>
+    <a href="mailto:tspw2000xj@gmail.com" class="contact-mail reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg><span>tspw2000xj@gmail.com</span></a>
+    <footer class="site-footer">&copy; 2026 Tomohiro Shiratori</footer>
+  </section>
+</main>
 
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = { scrolled: false };
+<script>
+  // スクロールしたらヘッダーに背景を出す
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  componentDidMount() {
-    this.onScroll = () => {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      const next = y > 60;
-      if (next !== this.state.scrolled) this.setState({ scrolled: next });
-    };
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    this.onScroll();
+  // 作品やスキルを、画面に入ったタイミングで順番にふわっと表示する
+  const items = document.querySelectorAll('.reveal');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('is-visible'));
+  } else {
+    document.querySelectorAll('.works-grid, .skills-grid').forEach(grid => {
+      const cols = grid.classList.contains('works-grid') ? 4 : 3;
+      [...grid.children].forEach((el, i) => { el.style.transitionDelay = (i % cols) * 0.08 + 's'; });
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { const el = entry.target;
+          el.classList.add('is-visible');
+          io.unobserve(el);
+          setTimeout(() => { el.style.transitionDelay = ''; }, 1400); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(el => io.observe(el));
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-  }
-
-  renderVals() {
-    return {
-      headerVeil: this.state.scrolled ? 1 : 0,
-      chromeMuted: '#7E8A90'
-    };
-  }
-}
-
 </script>
 </body>
 </html>
