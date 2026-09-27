@@ -70,8 +70,8 @@
   .work-title { font-weight: 700; color: var(--text); line-height: 1.5; }
   .work-meta { font-size: 0.8rem; font-weight: 400; color: var(--text-muted); line-height: 1.6; }
 
-  .featured { margin-bottom: 3.5rem; }
-  .featured-link { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+  .featured-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; margin-bottom: 3.5rem; }
+  .featured-link { display: flex; flex-direction: column; gap: 1.25rem; }
   .nowrap { white-space: nowrap; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .featured-body { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -139,7 +139,7 @@
   .work:hover .work-cat::after { transform: translateX(3px); }
 
   @media (max-width: 900px) {
-    .featured-link { grid-template-columns: 1fr; gap: 1.25rem; }
+    .featured-row { grid-template-columns: 1fr; }
     .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -181,19 +181,34 @@
     </div>
 
     <h2 class="sr-only">Works</h2>
-    <article class="work featured reveal">
-      <a href="livestream.html" class="featured-link">
-        <div class="work-thumb">
-          <img src="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg" alt="なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重 ライブ配信のサムネイル">
-        </div>
-        <div class="featured-body">
-          <span class="work-cat">Live Stream</span>
-          <h3 class="work-title">なでしこリーグ<br><span class="nowrap">静岡SSUボニータ</span> vs <span class="nowrap">伊賀FCくノ一三重</span></h3>
-          <p class="work-meta">担当：技術設計・システム構築・CG</p>
-          <span class="featured-more">View works</span>
-        </div>
-      </a>
-    </article>
+    <div class="featured-row">
+      <article class="work featured reveal">
+        <a href="tvonair.html" class="featured-link">
+          <div class="work-thumb">
+            <img src="https://img.youtube.com/vi/nF8HHRFUaX0/maxresdefault.jpg" alt="しぞ〜か☆みんなの健康体操 のサムネイル">
+          </div>
+          <div class="featured-body">
+            <span class="work-cat">TV On Air</span>
+            <h3 class="work-title">テレビ番組の制作・テロップ</h3>
+            <p class="work-meta">担当：ディレクター・撮影・編集・テロップ</p>
+            <span class="featured-more">View works</span>
+          </div>
+        </a>
+      </article>
+      <article class="work featured reveal">
+        <a href="livestream.html" class="featured-link">
+          <div class="work-thumb">
+            <img src="https://img.youtube.com/vi/tQVwM5acLb0/maxresdefault.jpg" alt="なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重 ライブ配信のサムネイル">
+          </div>
+          <div class="featured-body">
+            <span class="work-cat">Live Stream</span>
+            <h3 class="work-title">なでしこリーグ<br><span class="nowrap">静岡SSUボニータ</span> vs <span class="nowrap">伊賀FCくノ一三重</span></h3>
+            <p class="work-meta">担当：技術設計・システム構築・CG</p>
+            <span class="featured-more">View works</span>
+          </div>
+        </a>
+      </article>
+    </div>
 
     <div class="works-grid">
       <article class="work reveal">
@@ -300,8 +315,8 @@
   if (reduce || !('IntersectionObserver' in window)) {
     items.forEach(el => el.classList.add('is-visible'));
   } else {
-    document.querySelectorAll('.works-grid, .skills-grid').forEach(grid => {
-      const cols = grid.classList.contains('works-grid') ? 4 : 3;
+    document.querySelectorAll('.featured-row, .works-grid, .skills-grid').forEach(grid => {
+      const cols = grid.classList.contains('featured-row') ? 2 : grid.classList.contains('works-grid') ? 4 : 3;
       [...grid.children].forEach((el, i) => { el.style.transitionDelay = (i % cols) * 0.08 + 's'; });
     });
     const io = new IntersectionObserver(entries => {
