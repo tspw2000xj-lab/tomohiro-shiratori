@@ -335,6 +335,19 @@
     .header-logo { font-size: 0.95rem; }
     .page-footer-inner { font-size: 0.9rem; }
 
+    /* 日本語が言葉の途中で改行されないようにする */
+    .video-title, .video-desc, .card-title, .card-desc, .card-meta {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    /* 大会名・番組名は途中で「…」にせず、最後まで表示する */
+    .card-title, .card-desc {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
     @view-transition { navigation: auto; }
 
   </style>
@@ -364,8 +377,8 @@
         </iframe>
       </div>
       <div class="video-meta">
-        <h2 class="video-title" id="mainTitle">なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重</h2>
-        <p class="video-desc" id="mainDesc">2020–2026 ／ 担当：技術設計・システム構築・CG</p>
+        <h2 class="video-title" id="mainTitle">なでしこリーグ<br>静岡SSUボニータ vs 伊賀FCくノ一三重</h2>
+        <p class="video-desc" id="mainDesc">担当：技術設計・システム構築・CG</p>
       </div>
     </section>
 
@@ -375,7 +388,7 @@
       
       <div class="video-grid">
         <!-- Video 1 -->
-        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('tQVwM5acLb0', 'なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重', '2020–2026 ／ 担当：技術設計・システム構築・CG')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('tQVwM5acLb0', 'なでしこリーグ&lt;br&gt;静岡SSUボニータ vs 伊賀FCくノ一三重', '担当：技術設計・システム構築・CG')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/tQVwM5acLb0/hqdefault.jpg" alt="なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重" class="card-thumb">
             <div class="play-overlay">
@@ -385,13 +398,13 @@
             </div>
           </div>
           <div class="card-info">
-            <h4 class="card-title">なでしこリーグ 静岡SSUボニータ vs 伊賀FCくノ一三重</h4>
-            <p class="card-desc">2020–2026 ／ 担当：技術設計・システム構築・CG</p>
+            <h4 class="card-title">なでしこリーグ<br>静岡SSUボニータ vs 伊賀FCくノ一三重</h4>
+            <p class="card-desc">担当：技術設計・システム構築・CG</p>
           </div>
         </article>
 
         <!-- Video 2 -->
-        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('2_Wkyd6Qjgk', 'オリエンタルバイオ presents RiOの踊る♪ウィークエンド', '2020–2026 ／ 担当：技術設計・システム構築・CG')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('2_Wkyd6Qjgk', 'オリエンタルバイオ presents RiOの踊る♪ウィークエンド', '担当：技術設計・システム構築・CG')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/2_Wkyd6Qjgk/hqdefault.jpg" alt="オリエンタルバイオ presents RiOの踊る♪ウィークエンド" class="card-thumb">
             <div class="play-overlay">
@@ -402,12 +415,12 @@
           </div>
           <div class="card-info">
             <h4 class="card-title">オリエンタルバイオ presents RiOの踊る♪ウィークエンド</h4>
-            <p class="card-desc">2020–2026 ／ 担当：技術設計・システム構築・CG</p>
+            <p class="card-desc">担当：技術設計・システム構築・CG</p>
           </div>
         </article>
 
         <!-- Video 3 -->
-        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('nk0ud2RGf1U', 'しんきんカップ 第56回 静岡県中学選抜野球大会', '2020–2026 ／ 担当：技術設計・システム構築・CG・スロー')">
+        <article class="video-card" tabindex="0" role="button" onclick="switchVideo('nk0ud2RGf1U', 'しんきんカップ&lt;br&gt;第56回 静岡県中学選抜野球大会', '担当：技術設計・システム構築・CG・&#8288;スロー')">
           <div class="card-thumb-wrapper">
             <img src="https://img.youtube.com/vi/nk0ud2RGf1U/hqdefault.jpg" alt="しんきんカップ 第56回 静岡県中学選抜野球大会" class="card-thumb">
             <div class="play-overlay">
@@ -417,8 +430,8 @@
             </div>
           </div>
           <div class="card-info">
-            <h4 class="card-title">しんきんカップ 第56回 静岡県中学選抜野球大会</h4>
-            <p class="card-desc">2020–2026 ／ 担当：技術設計・システム構築・CG・スロー</p>
+            <h4 class="card-title">しんきんカップ<br>第56回 静岡県中学選抜野球大会</h4>
+            <p class="card-desc">担当：技術設計・システム構築・CG・&#8288;スロー</p>
           </div>
         </article>
       </div>
@@ -441,7 +454,7 @@
       const next = old.cloneNode();
       next.src = `https://www.youtube.com/embed/${videoId}?rel=0${reduceMotion ? '' : '&autoplay=1'}`;
       old.replaceWith(next);
-      document.getElementById('mainTitle').textContent = title;
+      document.getElementById('mainTitle').innerHTML = title;
       document.getElementById('mainDesc').textContent = description;
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     }

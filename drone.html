@@ -218,6 +218,12 @@
     .header-logo { font-size: 0.95rem; }
     .page-footer-inner { font-size: 0.9rem; }
 
+    /* 日本語が言葉の途中で改行されないようにする */
+    .video-title, .video-desc, .card-title, .card-desc, .card-meta {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
     @view-transition { navigation: auto; }
 
   </style>
@@ -247,7 +253,7 @@
       </div>
       <div class="video-meta">
         <h2 class="video-title" id="mainTitle">ドローン空撮</h2>
-        <p class="video-desc" id="mainDesc">2020–2026 ／ 番組用空撮 ／ 担当：撮影</p>
+        <p class="video-desc" id="mainDesc">番組用空撮 ／ 担当：撮影</p>
       </div>
     </section>
   </main>

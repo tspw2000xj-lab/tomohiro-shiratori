@@ -370,6 +370,12 @@
 
     .nw { white-space: nowrap; }
 
+    /* 日本語が言葉の途中で改行されないようにする */
+    .video-title, .video-desc, .card-title, .card-desc, .card-meta {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
     @view-transition { navigation: auto; }
 
   </style>
@@ -398,41 +404,41 @@
       <!-- Editorial Design (01〜04) -->
       <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="01.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
-        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2013 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="02.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
-        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2012 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="03.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
-        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2010 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="editorial">
         <div class="image-container"><img src="04.jpg" loading="lazy" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
-        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2010 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
 
       <!-- Logo Design (05〜09) -->
       <div class="card" tabindex="0" role="button" data-category="logo">
         <div class="image-container"><img src="05.jpg" loading="lazy" alt="イベントロゴ"></div>
-        <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">2009<br>担当：ロゴデザイン</span></div>
+        <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">担当：ロゴデザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="logo">
         <div class="image-container"><img src="06.jpg" loading="lazy" alt="イベントロゴ"></div>
-        <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">2008<br>担当：ロゴデザイン</span></div>
+        <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">担当：ロゴデザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="logo">
         <div class="image-container"><img src="07.jpg" loading="lazy" alt="番組タイトルロゴ"></div>
-        <div class="card-info"><span class="card-title">番組タイトルロゴ</span><span class="card-meta">2020<br>担当：ロゴデザイン</span></div>
+        <div class="card-info"><span class="card-title">番組タイトルロゴ</span><span class="card-meta">担当：ロゴデザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="logo">
         <div class="image-container"><img src="08.jpg" loading="lazy" alt="企画ロゴ"></div>
-        <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">2018<br>担当：ロゴデザイン</span></div>
+        <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">担当：ロゴデザイン</span></div>
       </div>
       <div class="card" tabindex="0" role="button" data-category="logo">
         <div class="image-container"><img src="09.jpg" loading="lazy" alt="企画ロゴ"></div>
-        <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">2017<br>担当：ロゴデザイン</span></div>
+        <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">担当：ロゴデザイン</span></div>
       </div>
 
       <!-- Character Design (panda_01〜04) -->
